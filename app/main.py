@@ -1,9 +1,8 @@
 from fastapi import FastAPI
 from . import models
 from .routers import posts, users, authentification, votes
-from .database import engine
+from .database import engine, get_db
 from fastapi.middleware.cors import CORSMiddleware
-from .database import get_db
 
 
 #models.base.metadata.create_all(bind=engine)
@@ -26,5 +25,5 @@ app.include_router(authentification.router)
 app.include_router(votes.router)
 
 @app.get("/piou")
-def helloworld(db : Depends(get_db)):
+def helloworld(db = Depends(get_db)):
     return {"hello":" world"}
