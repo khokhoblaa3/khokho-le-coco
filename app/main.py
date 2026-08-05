@@ -25,6 +25,6 @@ app.include_router(users.router)
 app.include_router(authentification.router)
 app.include_router(votes.router)
 
-@app.get("/")
+@app.get("/piou")
 def helloworld(db : Depends(get_db)):
     return {'hello' : ' world'}
