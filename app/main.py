@@ -27,4 +27,4 @@ app.include_router(votes.router)
 
 @app.get("/piou")
 def helloworld(db : Depends(get_db)):
-    return {'hello' : ' world'}
+    return {"hello":" world"}
